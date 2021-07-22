@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AuthenticationDemoApplication.Models;
 
+
 namespace AuthenticationDemoApplication.Controllers
 {
     [Authorize]
@@ -51,7 +52,11 @@ namespace AuthenticationDemoApplication.Controllers
                 _userManager = value;
             }
         }
-
+        [AllowAnonymous]
+        public ActionResult RoleManagement()            
+        {
+            return View();
+        }
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -60,7 +65,7 @@ namespace AuthenticationDemoApplication.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
+        
         //
         // POST: /Account/Login
         [HttpPost]
@@ -293,7 +298,7 @@ namespace AuthenticationDemoApplication.Controllers
                 return View("Error");
             }
             var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
-            var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
+            var factorOptions = userFactors.Select(purpose => new System.Web.Mvc.SelectListItem { Text = purpose, Value = purpose }).ToList();
             return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 

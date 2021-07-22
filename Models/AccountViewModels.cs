@@ -1,5 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Dapper;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace AuthenticationDemoApplication.Models
 {
@@ -121,5 +126,12 @@ namespace AuthenticationDemoApplication.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+    }
+    [Table("dbo.AspNetRoles")]
+    public class RoleManagement
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+       
     }
 }
