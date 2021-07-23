@@ -1,0 +1,23 @@
+﻿@model AuthenticationDemoApplication.Models.RoleManagementdata
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SelectRole</h2>
+@using (Html.BeginForm())
+    {
+        <table width="100%">
+            <tr>
+                <td>
+                    <div class="editor-label">
+                        @Html.Label("Select Role")
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        @Html.DropDownList("Mobiledropdown1", Model.RoleManagement, "Select Role")
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }

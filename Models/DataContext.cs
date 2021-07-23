@@ -10,17 +10,12 @@ namespace AuthenticationDemoApplication.Models
 {
     public class DataContext
     {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionString"].ToString());
-            public IEnumerable<RoleManagement> GetMobileList()
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString());
+            public IEnumerable<RoleManagement> GetSelectListItem()
             {
                 string query = "SELECT [ID],[Name]FROM [DemoDB].[dbo].[AspNetRoles]";
                 var result = con.Query<RoleManagement>(query);
                 return result;
             }
-
-        internal System.Collections.IEnumerable GetRoleManagementDataList()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

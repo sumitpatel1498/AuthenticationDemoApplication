@@ -52,11 +52,7 @@ namespace AuthenticationDemoApplication.Controllers
                 _userManager = value;
             }
         }
-        [AllowAnonymous]
-        public ActionResult RoleManagement()            
-        {
-            return View();
-        }
+        
         //
         // GET: /Account/Login
         [AllowAnonymous]

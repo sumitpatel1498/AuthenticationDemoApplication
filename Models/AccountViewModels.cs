@@ -127,11 +127,4 @@ namespace AuthenticationDemoApplication.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
-    [Table("dbo.AspNetRoles")]
-    public class RoleManagement
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-       
-    }
 }

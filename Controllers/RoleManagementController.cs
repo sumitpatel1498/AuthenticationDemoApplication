@@ -11,10 +11,10 @@ namespace AuthenticationDemoApplication.Controllers
     {
         DataContext DataCon = new DataContext();
         // GET: RoleManagement
-        public ActionResult SelectRole()
+        public ActionResult RoleManagement()
         {
             RoleManagementdata RoleMD = new RoleManagementdata();
-            RoleMD.RoleManagementDataList = new SelectList(DataCon.GetRoleManagementDataList(), "ID", "Name");
+            RoleMD.RoleManagement = new SelectList(DataCon.GetSelectListItem(), "Id", "Name");
             return View(RoleMD);
         }
     }
